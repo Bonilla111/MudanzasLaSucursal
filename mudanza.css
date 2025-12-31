@@ -1,0 +1,246 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --verde: #00c81b;
+  --verde-brillante: #00e600;
+  --azul: #007bff;
+}
+
+/* LOGO */
+.logo-navbar {
+  height: 55px;
+  width: auto;
+}
+
+/* NAVBAR */
+.navbar {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #eafff2 40%,
+    var(--verde-brillante) 100%
+  );
+  box-shadow: 0 8px 25px rgba(0, 200, 83, 0.25);
+  padding: 12px 0;
+}
+
+/* LINKS NAV */
+.navbar .nav-link {
+  color: #0a3d2e !important;
+  font-weight: 600;
+  margin: 0 8px;
+  position: relative;
+}
+
+/* EFECTO LINEA */
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -6px;
+  left: 0;
+  background: var(--verde);
+  transition: 0.3s ease;
+}
+
+.navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+/* BOTON COTIZAR */
+.btn-cotizar {
+  background: linear-gradient(
+    135deg,
+    var(--verde),
+    var(--verde-brillante)
+  );
+  color: #ffffff !important;
+  font-weight: 700;
+  border-radius: 40px;
+  padding: 12px 30px;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0, 200, 83, 0.45);
+  transition: all 0.3s ease;
+}
+
+/* HOVER BOTON */
+.btn-cotizar:hover {
+  background: linear-gradient(
+    135deg,
+    var(--verde-brillante),
+    var(--verde)
+  );
+  transform: scale(1.08);
+  box-shadow: 0 15px 35px rgba(0, 200, 83, 0.6);
+  color: #ffffff !important;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.6)
+  ),
+  url('img/ImgInicio.png')
+  center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* BOTON HERO COTIZAR */
+.btn-hero-cotizar {
+  background: linear-gradient(135deg, #00c853, #00e676);
+  color: #ffffff !important;
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding: 18px 45px;
+  border-radius: 60px;
+  box-shadow: 0 15px 40px rgba(0, 200, 83, 0.6);
+  transition: all 0.35s ease;
+  letter-spacing: 0.5px;
+}
+
+/* ICONO */
+.btn-hero-cotizar i {
+  font-size: 1.6rem;
+  animation: pulse-whatsapp 1.8s infinite;
+}
+
+/* HOVER */
+.btn-hero-cotizar:hover {
+  transform: scale(1.12);
+  box-shadow: 0 20px 55px rgba(0, 200, 83, 0.8);
+  background: linear-gradient(135deg, #00e676, #00c853);
+}
+
+/* ANIMACION ICONO */
+@keyframes pulse-whatsapp {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+
+/* SECTIONS */
+section {
+  padding: 80px 0;
+}
+
+.icon-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.icon-box:hover {
+  transform: translateY(-10px);
+}
+
+.icon-box i {
+  font-size: 3rem;
+  color: var(--verde);
+}
+
+/* FORM */
+.form-section {
+  background: linear-gradient(135deg, var(--azul), var(--verde));
+  color: #fff;
+}
+
+.form-control,
+.form-select {
+  border-radius: 10px;
+}
+
+/* FLOAT BUTTON */
+.float-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 999;
+  background: linear-gradient(135deg, #00c853, #00e676);
+  color: #ffffff !important;
+  border-radius: 60px;
+  padding: 16px 28px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 15px 40px rgba(0, 200, 83, 0.6);
+  transition: all 0.35s ease;
+  animation: floatPulse 2s infinite;
+}
+
+/* ICONO */
+.float-btn i {
+  font-size: 1.5rem;
+  animation: whatsappBounce 1.5s infinite;
+}
+
+/* HOVER */
+.float-btn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 20px 55px rgba(0, 200, 83, 0.8);
+  background: linear-gradient(135deg, #00e676, #00c853);
+}
+
+/* ANIMACIONES */
+@keyframes floatPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+@keyframes whatsappBounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+footer {
+  background: #111;
+  color: #fff;
+  padding: 40px 0;
+}
+
+
+/* Zonas*/
+#zonas .icon-box i {
+  font-size: 3.2rem;
+  color: var(--verde);
+}
+
+
+/* Nosotros */
+
+#nosotros img {
+  border: 4px solid var(--verde);
+  transition: transform 0.3s ease;
+}
+
+#nosotros img:hover {
+  transform: scale(1.03);
+}
