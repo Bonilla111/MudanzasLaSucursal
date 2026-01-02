@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mudanzas La Sucursal | Trasteos en Cali</title>
+
+    <link rel="shortcut icon" href="img/Logo.png" type="image/x-icon" />
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="mudanza.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+      <div class="container">
+        <!-- LOGO -->
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img src="img/Logo.png" alt="Logo" class="logo-navbar" />
+        </a>
+
+        <!-- TOGGLER -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- MENU -->
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#servicios">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#zonas">Zonas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#nosotros">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#opiniones">Opiniones</a>
+            </li>
+           
+
+            <!-- BOTON -->
+            <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+              <a
+                class="btn btn-cotizar d-flex align-items-center gap-2"
+                href="#cotizar"
+              >
+                <i class="bi bi-whatsapp"></i>
+                COTIZAR
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero text-center">
+      <div class="container">
+        <h1>Expertos en Trasteos y Mudanzas en Cali</h1>
+        <p>Rápido • Seguro • Económico • Personal Confiable</p>
+        <a
+          href="#cotizar"
+          class="btn btn-hero-cotizar mt-4 d-inline-flex align-items-center gap-2"
+        >
+          <i class="bi bi-whatsapp"></i>
+          Cotiza tu mudanza ahora
+        </a>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+      <div class="container">
+        <h2 class="text-center mb-5 fw-bold">Nuestros Servicios</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="icon-box">
+              <i class="bi bi-truck"></i>
+              <h5 class="mt-3">Trasteos completos</h5>
+              <p>Casa, apartamento u oficina</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="icon-box">
+              <i class="bi bi-box-seam"></i>
+              <h5 class="mt-3">Empaque profesional</h5>
+              <p>Protección total de tus muebles</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="icon-box">
+              <i class="bi bi-people"></i>
+              <h5 class="mt-3">Personal capacitado</h5>
+              <p>Ayudantes expertos</p>
+            </div>
+          </div>
+        </div>
+        <br /><br />
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="icon-box">
+              <i class="bi bi-building"></i>
+              <h5 class="mt-3">Mudanza Empresariales</h5>
+              <p>oficinas, locales comerciales y bodegas</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="icon-box">
+              <i class="bi bi-tools"></i>
+              <h5 class="mt-3">Desmontaje y montaje</h5>
+              <p>Armamos y desarmamos tus muebles sin daños</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="icon-box">
+              <i class="bi bi-globe"></i>
+              <h5 class="mt-3">Mudanzas locales y nacionales</h5>
+              <p>Llegamos a cualquier ciudad del pais</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO -->
+    <section id="cotizar" class="form-section">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-4">Cotiza tu mudanza ya</h2>
+      <form class="row g-3 bg-white text-dark p-4 rounded-4" id="formulario_cotiza">
+
+  <!-- DATOS PERSONALES -->
+  <div class="col-md-6">
+    <label class="form-label fw-bold">Nombre completo *</label>
+    <input type="text" class="form-control" name="nombre" required minlength="5">
+  </div>
+
+  <div class="col-md-3">
+    <label class="form-label fw-bold">Celular principal *</label>
+    <input type="tel" class="form-control" name="celular1" required pattern="[0-9]{10}">
+  </div>
+
+  <div class="col-md-3">
+    <label class="form-label fw-bold">Celular secundario</label>
+    <input type="tel" class="form-control" name="celular2" pattern="[0-9]{10}">
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label fw-bold">Correo electrónico *</label>
+    <input type="email" class="form-control" name="correo" required>
+  </div>
+
+  <!-- UBICACIÓN -->
+  <div class="col-md-3">
+    <label class="form-label fw-bold">Barrio origen *</label>
+    <input type="text" class="form-control" name="barrio_origen" required>
+  </div>
+
+  <div class="col-md-3">
+    <label class="form-label fw-bold">Barrio destino *</label>
+    <input type="text" class="form-control" name="barrio_destino" required>
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label fw-bold">Dirección *</label>
+    <input type="text" class="form-control" name="direccion" required>
+  </div>
+
+  <div class="col-md-3">
+    <label class="form-label fw-bold">Piso actual</label>
+    <input type="number" class="form-control" name="piso_actual" min="0" max="50">
+  </div>
+
+  <div class="col-md-3">
+    <label class="form-label fw-bold">Piso destino</label>
+    <input type="number" class="form-control" name="piso_destino" min="0" max="50">
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label fw-bold">Tipo de vivienda *</label>
+    <select class="form-select" name="tipo_vivienda" required>
+      <option disabled selected>Seleccione</option>
+      <option>Casa</option>
+      <option>Apartamento</option>
+      <option>Unidad residencial</option>
+      <option>Oficina</option>
+    </select>
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label fw-bold">Cantidad de ayudantes que necesita</label>
+    <input type="number" class="form-control" name="ayudantes" min="0" max="10">
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label fw-bold">¿Solo transporte?</label>
+    <select class="form-select" name="solo_transporte" required>
+      <option disabled selected>Seleccione</option>
+      <option value="si">Sí</option>
+      <option value="no">No</option>
+    </select>
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label fw-bold">Fecha del servicio *</label>
+    <input type="date" class="form-control" name="fecha" required>
+  </div>
+
+  <div class="col-md-6">
+    <label class="form-label fw-bold">Hora aproximada *</label>
+    <input type="time" class="form-control" name="hora" required>
+  </div>
+
+
+            <div class="col-12 mt-4">
+    <h5 class="fw-bold">¿Qué tiene usted? (cantidad)</h5>
+  </div>
+
+  <!-- HABITACIÓN -->
+  <div class="col-md-3"><input type="number" min="0" class="form-control" name="cama_doble" placeholder="Cama doble"></div>
+  <div class="col-md-3"><input type="number" min="0" class="form-control" name="cama_sencilla" placeholder="Cama sencilla"></div>
+  <div class="col-md-3"><input type="number" min="0" class="form-control" name="colchon" placeholder="Colchones"></div>
+  <div class="col-md-3"><input type="number" min="0" class="form-control" name="closet" placeholder="Closets"></div>
+
+  <!-- SALA -->
+  <div class="col-md-3"><input type="number" min="0" class="form-control" name="sofa" placeholder="Sofás"></div>
+  <div class="col-md-3"><input type="number" min="0" class="form-control" name="centro_tv" placeholder="Centro de TV"></div>
+  <div class="col-md-3"><input type="number" min="0" class="form-control" name="televisores" placeholder="Televisores"></div>
+
+  <!-- COCINA -->
+  <div class="col-md-3"><input type="number" min="0" class="form-control" name="nevera" placeholder="Nevera"></div>
+  <div class="col-md-3"><input type="number" min="0" class="form-control" name="lavadora" placeholder="Lavadora"></div>
+  <div class="col-md-3"><input type="number" min="0" class="form-control" name="estufa" placeholder="Estufa"></div>
+  <div class="col-md-3"><input type="number" min="0" class="form-control" name="microondas" placeholder="Microondas"></div>
+
+  <!-- OTROS -->
+  <div class="col-md-3"><input type="number" min="0" class="form-control" name="comedor" placeholder="Comedor"></div>
+  <div class="col-md-3"><input type="number" min="0" class="form-control" name="escritorios" placeholder="Escritorios"></div>
+  <div class="col-md-3"><input type="number" min="0" class="form-control" name="cajas" placeholder="Cajas"></div>
+  <div class="col-md-3"><input type="number" min="0" class="form-control" name="chuspas" placeholder="chuspas"></div>
+
+
+  <div class="col-12 mt-3">
+  <button type="button" class="btn btn-outline-success" onclick="agregarOtro()">
+    + Agregar otro objeto
+  </button>
+</div>
+
+<div id="otros-container" class="row g-3 mt-2"></div>
+
+
+          <div class="col-12 text-center">
+           <button type="submit" class="btn btn-success btn-lg px-5">
+  Enviar cotización
+</button>
+
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ZONAS DE COBERTURA -->
+<section id="zonas">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Zonas de Cobertura</h2>
+      <p class="text-muted">
+        Llegamos a donde lo necesites, con prioridad en Cali y el Valle del Cauca
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- CALI -->
+      <div class="col-md-4">
+        <div class="icon-box h-100">
+          <i class="bi bi-geo-alt-fill"></i>
+          <h5 class="mt-3 fw-bold">Cali</h5>
+          <p>
+            Cobertura total en todas las comunas y barrios de Cali.
+          </p>
+        </div>
+      </div>
+
+      <!-- ALREDEDORES -->
+      <div class="col-md-4">
+        <div class="icon-box h-100">
+          <i class="bi bi-map-fill"></i>
+          <h5 class="mt-3 fw-bold">Alrededores de Cali</h5>
+          <p>
+            Jamundí, Palmira, Yumbo, Candelaria y municipios cercanos.
+          </p>
+        </div>
+      </div>
+
+      <!-- COLOMBIA -->
+      <div class="col-md-4">
+        <div class="icon-box h-100">
+          <i class="bi bi-truck-front-fill"></i>
+          <h5 class="mt-3 fw-bold">Cobertura Nacional</h5>
+          <p>
+            Realizamos mudanzas y trasteos a cualquier ciudad del país.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-5">
+      <a href="#cotizar" class="btn btn-hero-cotizar d-inline-flex align-items-center gap-2">
+        <i class="bi bi-whatsapp"></i>
+        Cotiza tu mudanza ahora
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <div class="col-md-6">
+        <h2 class="fw-bold mb-3">¿Quiénes Somos?</h2>
+        <p>
+          Somos <strong>Mudanzas La Sucursal</strong>, una empresa especializada en
+          trasteos y mudanzas locales y nacionales, con base principal en
+          <strong>Cali, Valle del Cauca</strong>.
+        </p>
+        <p>
+          Contamos con personal capacitado, vehículos adecuados y el compromiso
+          de brindar un servicio <strong>seguro, rápido y confiable</strong>.
+          Nuestro objetivo es que tu mudanza sea una experiencia tranquila,
+          sin estrés ni preocupaciones.
+        </p>
+
+        <a href="#cotizar" class="btn btn-success mt-3 d-inline-flex align-items-center gap-2">
+          <i class="bi bi-whatsapp"></i>
+          Cotiza con nosotros
+        </a>
+      </div>
+
+     <div class="col-md-6 text-center">
+  <img 
+    src="img/Camion_nosotros.png" 
+    alt="Equipo profesional de mudanzas en Cali"
+    class="img-fluid rounded-4 shadow"
+  >
+</div>
+
+
+    </div>
+  </div>
+</section>
+
+
+<!-- POR QUE ELEGIRNOS -->
+<section id="porque-elegirnos" style="background:#f8f9fa;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">¿Por qué elegirnos?</h2>
+      <p class="text-muted">Más que una mudanza, te ofrecemos tranquilidad</p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="icon-box h-100">
+          <i class="bi bi-shield-check"></i>
+          <h5 class="mt-3 fw-bold">Seguridad garantizada</h5>
+          <p>Cuidamos tus pertenencias como si fueran nuestras.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="icon-box h-100">
+          <i class="bi bi-clock-history"></i>
+          <h5 class="mt-3 fw-bold">Puntualidad</h5>
+          <p>Cumplimos horarios y tiempos acordados.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="icon-box h-100">
+          <i class="bi bi-people-fill"></i>
+          <h5 class="mt-3 fw-bold">Personal capacitado</h5>
+          <p>Equipo entrenado para todo tipo de mudanzas.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="icon-box h-100">
+          <i class="bi bi-truck"></i>
+          <h5 class="mt-3 fw-bold">Cobertura nacional</h5>
+          <p>Realizamos servicios en todo Colombia.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="icon-box h-100">
+          <i class="bi bi-cash-coin"></i>
+          <h5 class="mt-3 fw-bold">Precios justos</h5>
+          <p>Tarifas claras, sin costos ocultos.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="icon-box h-100">
+          <i class="bi bi-star-fill"></i>
+          <h5 class="mt-3 fw-bold">Clientes satisfechos</h5>
+          <p>Nuestra mejor publicidad son las recomendaciones.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- OPINIONES -->
+<section id="opiniones">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Opiniones de nuestros clientes</h2>
+      <p class="text-muted">Lo que dicen quienes ya confiaron en nosotros</p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-4">
+        <div class="icon-box h-100">
+          <i class="bi bi-chat-quote-fill"></i>
+          <p class="mt-3">
+            “Excelente servicio, muy puntuales y cuidadosos con los muebles.
+            Los recomiendo totalmente.”
+          </p>
+          <h6 class="fw-bold mt-3">— Carlos M.</h6>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="icon-box h-100">
+          <i class="bi bi-chat-quote-fill"></i>
+          <p class="mt-3">
+            “Me hicieron la mudanza de Cali a Palmira sin ningún problema,
+            todo llegó perfecto.”
+          </p>
+          <h6 class="fw-bold mt-3">— Laura G.</h6>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="icon-box h-100">
+          <i class="bi bi-chat-quote-fill"></i>
+          <p class="mt-3">
+            “Buen precio, buen trato y muy responsables.
+            Volvería a contratarlos.”
+          </p>
+          <h6 class="fw-bold mt-3">— Andrés R.</h6>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-5">
+      <a href="#cotizar" class="btn btn-hero-cotizar d-inline-flex align-items-center gap-2">
+        <i class="bi bi-whatsapp"></i>
+        Quiero mi cotización
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- FOOTER -->
+    <footer class="text-center">
+      <div class="container">
+        <p>© 2025 Mudanzas La Sucursal - Cali</p>
+        <p>
+          <i class="bi bi-whatsapp"></i> 315 3097632 |
+          <i class="bi bi-envelope"></i> nicolascalderonp@gmail.com
+        </p>
+      </div>
+    </footer>
+
+    <!-- FLOAT BUTTON -->
+    <a href="#cotizar" class="float-btn d-flex align-items-center gap-2">
+      <i class="bi bi-whatsapp"></i>
+      Cotizar
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="mudanzas.js"></script>
+  </body>
+</html>
