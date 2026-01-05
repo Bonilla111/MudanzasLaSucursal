@@ -16,22 +16,16 @@ const soloTransporte = document.getElementById("solo_transporte");
 
 //fin 
 
-//Mejorar el carrusel
+// Mejorar el carrusel: inicializar con wrap para que repita y opciones UX
 document.addEventListener('DOMContentLoaded', function() {
-  const carousel = document.getElementById('galeriaNosotros');
-  if (carousel) {
-    // Permitir navegación con teclado
-    document.addEventListener('keydown', function(e) {
-      const activeCarousel = document.querySelector('.carousel-item.active');
-      if (activeCarousel && activeCarousel.closest('#galeriaNosotros')) {
-        if (e.key === 'ArrowLeft') {
-          const prevBtn = carousel.querySelector('.carousel-control-prev');
-          prevBtn.click();
-        } else if (e.key === 'ArrowRight') {
-          const nextBtn = carousel.querySelector('.carousel-control-next');
-          nextBtn.click();
-        }
-      }
+  const carouselEl = document.getElementById('galeriaNosotros');
+  if (carouselEl && typeof bootstrap !== 'undefined') {
+    // Inicializa el componente de Bootstrap con wrap = true
+    new bootstrap.Carousel(carouselEl, {
+      interval: 3500,
+      wrap: true,
+      keyboard: true,
+      pause: 'hover'
     });
   }
 });
