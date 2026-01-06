@@ -3,6 +3,22 @@ body {
   scroll-behavior: smooth;
 }
 
+/* Prevent horizontal scroll on mobile and ensure consistent box sizing */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* Make media responsive by default */
+img, picture, video, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 :root {
   --verde: #00c81b;
   --verde-brillante: #00e600;
