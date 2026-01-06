@@ -1,8 +1,9 @@
-////condicional de ver si necesita ayudantes o no
+// Condicional: mostrar campo de ayudantes si el usuario lo necesita
 const soloTransporte = document.getElementById("solo_transporte");
-  const grupoAyudantes = document.getElementById("grupo-ayudantes");
-  const inputAyudantes = document.getElementById("input-ayudantes");
+const grupoAyudantes = document.getElementById("grupo-ayudantes");
+const inputAyudantes = document.getElementById("input-ayudantes");
 
+if (soloTransporte) {
   soloTransporte.addEventListener("change", function () {
     if (this.value === "no") {
       grupoAyudantes.classList.remove("d-none");
@@ -13,10 +14,9 @@ const soloTransporte = document.getElementById("solo_transporte");
       inputAyudantes.value = "";
     }
   });
+}
 
-//fin 
-
-// Mejorar el carrusel: inicializar con wrap para que repita y opciones UX
+// Inicializar carrusel con wrap y atajos de teclado para mejor UX
 document.addEventListener('DOMContentLoaded', function() {
   const carouselEl = document.getElementById('galeriaNosotros');
   if (carouselEl && typeof bootstrap !== 'undefined') {
@@ -24,38 +24,33 @@ document.addEventListener('DOMContentLoaded', function() {
     new bootstrap.Carousel(carouselEl, {
       interval: 3500,
       wrap: true,
-      keyboard: true,
+      keyboard: false,
       pause: 'hover'
+    });
+
+    // Soporte de teclado (flechas) para moverse entre slides
+    document.addEventListener('keydown', function(e) {
+      if (!document.querySelector('.carousel-item.active')) return;
+      const activeCarousel = document.querySelector('.carousel-item.active').closest('#galeriaNosotros');
+      if (!activeCarousel) return;
+
+      if (e.key === 'ArrowLeft') {
+        const prevBtn = carouselEl.querySelector('.carousel-control-prev');
+        if (prevBtn) prevBtn.click();
+      } else if (e.key === 'ArrowRight') {
+        const nextBtn = carouselEl.querySelector('.carousel-control-next');
+        if (nextBtn) nextBtn.click();
+      }
     });
   }
 });
 
-//Boton para agregar otro objeto en la seccion de otros objetos
-
-function agregarOtro() {
-  const container = document.getElementById("otros-container");
-
-  const div = document.createElement("div");
-  div.className = "col-md-6";
-
-  div.innerHTML = `
-    <input type="text" class="form-control" name="otros[]" placeholder="Ej: Bicicleta, Piano, Caja fuerte">
-  `;
-
-  container.appendChild(div);
-}
-
-
-
-//IMPORTANTEEE EL ENVIO A WHATSAPP
-
-//agregar otro
+// Agregar campos "otros" dinámicos
 let contadorOtros = 0;
-
 function agregarOtro() {
   contadorOtros++;
-
   const contenedor = document.getElementById("otros-container");
+  if (!contenedor) return;
 
   const div = document.createElement("div");
   div.classList.add("col-md-6");
@@ -70,8 +65,6 @@ function agregarOtro() {
 
   contenedor.appendChild(div);
 }
-
-//FIn agregar otro
 
 
 
