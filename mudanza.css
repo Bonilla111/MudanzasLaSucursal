@@ -575,10 +575,14 @@ footer {
     width: 60px;
     border-radius: 50%;
     justify-content: center;
-    left: 84px; /* keep near left group on small screens */
+    left: 20px; /* flush to left edge on mobile */
     bottom: 25px; /* same height as float button */
   }
   .call-text { display: none; }
+  
+  .whatsapp-left {
+    left: 90px; /* move right to avoid overlap on mobile */
+  }
 }
 
 .icono-rojo {
