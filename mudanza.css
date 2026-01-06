@@ -535,7 +535,8 @@ footer {
 .call-left {
   position: fixed;
   bottom: 30px;
-  right: 20px;
+  left: 90px; /* placed to the right of .whatsapp-left which uses left:20px */
+  right: auto;
   min-width: 60px;
   height: 60px;
   background: linear-gradient(135deg, #007bff, #0047b3);
@@ -574,6 +575,7 @@ footer {
     width: 60px;
     border-radius: 50%;
     justify-content: center;
+    left: 90px; /* keep on left side on small screens */
   }
   .call-text { display: none; }
 }
