@@ -31,8 +31,9 @@
     <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
       <div class="container">
         <!-- LOGO -->
-        <a class="navbar-brand d-flex align-items-center" href="#">
-          <img src="img/logo.png" alt="Logo" class="logo-navbar" />
+        <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+          <img src="img/logo.png" alt="Logo" class="logo-navbar" style="max-height: 85px;" />
+          <span class="fw-bold" style="font-size: 1.35rem; color: #0a3d2e; letter-spacing: 0.5px;">Mudanzas<br/> La Sucursal</span>
         </a>
 
         <!-- TOGGLER -->
@@ -284,8 +285,37 @@
 
 <div id="otros-container" class="row g-3 mt-2"></div>
 
+<!-- MÁS VIAJES / PARADAS -->
+<div class="col-12 mt-5 pt-3 border-top">
+  <h5 class="fw-bold mb-3">¿Harán más viajes a otras casas?</h5>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="mas_viajes" id="mas_viajes_no" value="no" checked>
+    <label class="form-check-label" for="mas_viajes_no">
+      No, es una sola parada
+    </label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="mas_viajes" id="mas_viajes_si" value="si">
+    <label class="form-check-label" for="mas_viajes_si">
+      Sí, vamos a otras casas
+    </label>
+  </div>
+</div>
 
-          <div class="col-12 text-center">
+<!-- CONTENEDOR DE PARADAS ADICIONALES -->
+<div id="paradas-adicionales" class="row g-3 mt-3 d-none">
+  <div class="col-12">
+    <h6 class="fw-bold text-success">Paradas adicionales</h6>
+  </div>
+</div>
+
+<div class="col-12 mt-3" id="btn-agregar-parada" style="display: none;">
+  <button type="button" class="btn btn-outline-info" onclick="agregarParada()">
+    + Agregar parada
+  </button>
+</div>
+
+          <div class="col-12 text-center mt-4">
            <button type="submit" class="btn btn-success btn-lg px-5">
   Enviar cotización
 </button>
@@ -383,7 +413,25 @@
   <div id="galeriaNosotros" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner rounded-4 shadow">
 
+
+
       <div class="carousel-item active">
+        
+        <img src="img/servicios/nosotros7.jpeg" class="d-block w-100" alt="">
+      </div>
+
+      
+      <div class="carousel-item">
+        <img src="img/servicios/nosotros8.jpeg" class="d-block w-100" alt="">
+      </div>
+
+
+         <div class="carousel-item">
+        <img src="img/servicios/nosotros10.jpeg" class="d-block w-100" alt="">
+      </div>
+
+
+      <div class="carousel-item">
         <img src="img/servicios/nosotros1.jpeg" class="d-block w-100" alt="">
       </div>
 
@@ -410,10 +458,15 @@
         <img src="img/servicios/nosotros6.jpeg" class="d-block w-100" alt="">
       </div>
 
-      
-       <div class="carousel-item">
-        <img src="img/servicios/nosotros7.jpeg" class="d-block w-100" alt="">
+
+   
+
+    
+      <div class="carousel-item">
+        <img src="img/servicios/nosotros12.jpeg" class="d-block w-100" alt="">
       </div>
+      
+    
 
     </div>
     
@@ -436,6 +489,9 @@
       <button type="button" data-bs-target="#galeriaNosotros" data-bs-slide-to="4" aria-label="Slide 5"></button>
       <button type="button" data-bs-target="#galeriaNosotros" data-bs-slide-to="5" aria-label="Slide 6"></button>
       <button type="button" data-bs-target="#galeriaNosotros" data-bs-slide-to="6" aria-label="Slide 7"></button>
+      <button type="button" data-bs-target="#galeriaNosotros" data-bs-slide-to="7" aria-label="Slide 8"></button>
+      <button type="button" data-bs-target="#galeriaNosotros" data-bs-slide-to="8" aria-label="Slide 9"></button>
+      <button type="button" data-bs-target="#galeriaNosotros" data-bs-slide-to="9" aria-label="Slide 10"></button>
     </div>
   </div>
 </div>

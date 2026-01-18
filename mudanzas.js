@@ -16,6 +16,82 @@ if (soloTransporte) {
   });
 }
 
+// Condicional: mostrar paradas adicionales si hay más viajes
+const masViajesRadios = document.querySelectorAll('input[name="mas_viajes"]');
+const paradasAdicionalesContainer = document.getElementById("paradas-adicionales");
+const btnAgregarParada = document.getElementById("btn-agregar-parada");
+
+masViajesRadios.forEach(radio => {
+  radio.addEventListener("change", function () {
+    if (this.value === "si") {
+      paradasAdicionalesContainer.classList.remove("d-none");
+      btnAgregarParada.style.display = "block";
+    } else {
+      paradasAdicionalesContainer.classList.add("d-none");
+      btnAgregarParada.style.display = "none";
+      paradasAdicionalesContainer.innerHTML = '<div class="col-12"><h6 class="fw-bold text-success">Paradas adicionales</h6></div>';
+      contadorParadas = 0;
+    }
+  });
+});
+
+// Agregar paradas dinámicas
+let contadorParadas = 0;
+function agregarParada() {
+  contadorParadas++;
+  const contenedor = document.getElementById("paradas-adicionales");
+  
+  const div = document.createElement("div");
+  div.classList.add("row", "g-3", "p-3", "border", "rounded", "bg-light", "mt-3");
+  div.id = `parada-${contadorParadas}`;
+
+  div.innerHTML = `
+    <div class="col-12">
+      <h6 class="fw-bold">Parada #${contadorParadas}</h6>
+    </div>
+    
+    <div class="col-md-6">
+      <label class="form-label fw-bold">Barrio</label>
+      <input type="text" class="form-control" name="parada_${contadorParadas}_barrio" placeholder="Barrio">
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label fw-bold">Dirección</label>
+      <input type="text" class="form-control" name="parada_${contadorParadas}_direccion" placeholder="Dirección" required>
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label fw-bold">Piso</label>
+      <input type="number" class="form-control" name="parada_${contadorParadas}_piso" min="0" max="50">
+    </div>
+
+    <div class="col-md-9">
+      <label class="form-label fw-bold">Tipo de vivienda</label>
+      <select class="form-select" name="parada_${contadorParadas}_tipo">
+        <option selected>Casa</option>
+        <option>Apartamento</option>
+        <option>Unidad residencial</option>
+        <option>Oficina</option>
+      </select>
+    </div>
+
+    <div class="col-12">
+      <button type="button" class="btn btn-sm btn-danger" onclick="eliminarParada(${contadorParadas})">
+        × Eliminar parada
+      </button>
+    </div>
+  `;
+
+  contenedor.appendChild(div);
+}
+
+function eliminarParada(numero) {
+  const parada = document.getElementById(`parada-${numero}`);
+  if (parada) {
+    parada.remove();
+  }
+}
+
 // Inicializar carrusel con wrap y atajos de teclado para mejor UX
 document.addEventListener('DOMContentLoaded', function() {
   const carouselEl = document.getElementById('galeriaNosotros');
@@ -81,13 +157,34 @@ document.getElementById("formulario_cotiza").addEventListener("submit", function
   if (f.celular2.value) mensaje += `📞 *Celular 2:* ${f.celular2.value}\n`;
   mensaje += `📧 *Correo:* ${f.correo.value}\n\n`;
 
-  // UBICACIÓN
-  mensaje += `📍 *Origen:* ${f.barrio_origen.value}\n`;
-  mensaje += `📍 *Destino:* ${f.barrio_destino.value}\n`;
-  mensaje += `🏠 *Dirección:* ${f.direccion.value}\n`;
-  mensaje += `🏢 *Tipo vivienda:* ${f.tipo_vivienda.value}\n`;
+  // UBICACIÓN PRINCIPAL
+  mensaje += `📍 *PARADA PRINCIPAL*\n`;
+  mensaje += `🏠 *Barrio Origen:* ${f.barrio_origen.value}\n`;
+  mensaje += `📍 *Barrio Destino:* ${f.barrio_destino.value}\n`;
+  mensaje += `🏢 *Dirección:* ${f.direccion.value}\n`;
+  mensaje += `🏘 *Tipo vivienda:* ${f.tipo_vivienda.value}\n`;
   mensaje += `⬆ Piso actual: ${f.piso_actual.value || 'N/A'}\n`;
   mensaje += `⬇ Piso destino: ${f.piso_destino.value || 'N/A'}\n\n`;
+
+  // PARADAS ADICIONALES
+  if (f.mas_viajes.value === "si") {
+    mensaje += `📍 *PARADAS ADICIONALES*\n`;
+    for (let i = 1; i <= contadorParadas; i++) {
+      const barrio = f[`parada_${i}_barrio`];
+      const direccion = f[`parada_${i}_direccion`];
+      const piso = f[`parada_${i}_piso`];
+      const tipo = f[`parada_${i}_tipo`];
+
+      if (direccion && direccion.value.trim() !== "") {
+        mensaje += `\n*Parada #${i}:*\n`;
+        if (barrio && barrio.value) mensaje += `  Barrio: ${barrio.value}\n`;
+        mensaje += `  Dirección: ${direccion.value}\n`;
+        if (piso && piso.value) mensaje += `  Piso: ${piso.value}\n`;
+        if (tipo && tipo.value) mensaje += `  Tipo: ${tipo.value}\n`;
+      }
+    }
+    mensaje += `\n`;
+  }
 
   // SERVICIO
   mensaje += `🧑‍🔧 *Ayudantes:* ${f.ayudantes.value || 0}\n`;
@@ -107,7 +204,7 @@ document.getElementById("formulario_cotiza").addEventListener("submit", function
 
   objetos.forEach(nombre => {
     if (f[nombre] && f[nombre].value > 0) {
-      mensaje += `• ${nombre.replace("_"," ")}: ${f[nombre].value}\n`;
+      mensaje += `• ${nombre.replace(/_/g," ")}: ${f[nombre].value}\n`;
     }
   });
 
@@ -120,7 +217,6 @@ document.getElementById("formulario_cotiza").addEventListener("submit", function
   }
 
   mensaje += `\n✅ *Enviado desde la web*`;
-
 
   const telefono = "573235077586"; // WhatsApp Colombia
 
