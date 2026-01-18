@@ -397,8 +397,22 @@ section p.text-muted {
 }
 
 .carousel-item img {
-  object-fit: cover;
+  object-fit: contain;
   height: 500px;
+  background: #f8f9fa;
+}
+
+/* RESPONSIVE CARRUSEL */
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-item img {
+    height: 250px;
+  }
 }
 
 .carousel-control-prev,
