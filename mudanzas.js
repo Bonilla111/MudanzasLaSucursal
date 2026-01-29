@@ -149,6 +149,68 @@ document.getElementById("formulario_cotiza").addEventListener("submit", function
 
   const f = e.target;
 
+  // VALIDACIONES
+  // Validar nombre
+  if (!f.nombre.value || f.nombre.value.trim().length < 3) {
+    alert("⚠️ El nombre debe tener al menos 3 caracteres");
+    return;
+  }
+  if (f.nombre.value.length > 50) {
+    alert("⚠️ El nombre no puede exceder 50 caracteres");
+    return;
+  }
+  if (!/^[a-záéíóúñ\s]+$/i.test(f.nombre.value)) {
+    alert("⚠️ El nombre solo puede contener letras y espacios");
+    return;
+  }
+
+  // Validar teléfono
+  const telefonoLimpio = f.celular1.value.replace(/\D/g, '');
+  if (telefonoLimpio.length < 7 || telefonoLimpio.length > 15) {
+    alert("⚠️ El teléfono debe tener entre 7 y 15 dígitos");
+    return;
+  }
+
+  // Validar correo
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(f.correo.value)) {
+    alert("⚠️ Por favor ingresa un correo válido");
+    return;
+  }
+
+  // Validar barrios y direcciones (máximo 100 caracteres)
+  if (f.barrio_origen.value.length > 100 || f.barrio_destino.value.length > 100 || f.direccion.value.length > 100) {
+    alert("⚠️ Los barrios y direcciones no pueden exceder 100 caracteres");
+    return;
+  }
+
+  // Validar pisos (máximo 100)
+  if ((f.piso_actual.value && f.piso_actual.value > 100) || (f.piso_destino.value && f.piso_destino.value > 100)) {
+    alert("⚠️ El número de piso no puede ser mayor a 100");
+    return;
+  }
+
+  // Validar ayudantes (máximo 20)
+  if (f.ayudantes.value > 20) {
+    alert("⚠️ No puedes solicitar más de 20 ayudantes");
+    return;
+  }
+
+  // Validar que no haya cantidades absurdas en objetos (máximo 999 por artículo)
+  const objetosLista = [
+    "cama_doble","cama_sencilla","colchon","closet",
+    "sofa","centro_tv","televisores",
+    "nevera","lavadora","estufa","microondas",
+    "comedor","escritorios","cajas","chuspas"
+  ];
+
+  for (let objeto of objetosLista) {
+    if (f[objeto] && f[objeto].value > 999) {
+      alert(`⚠️ No puedes ingresar más de 999 unidades de ${objeto.replace(/_/g, " ")}`);
+      return;
+    }
+  }
+
   let mensaje = `🚚 *COTIZACIÓN DE MUDANZA* 🚚\n\n`;
 
   // DATOS PERSONALES
@@ -218,7 +280,7 @@ document.getElementById("formulario_cotiza").addEventListener("submit", function
 
   mensaje += `\n✅ *Enviado desde la web*`;
 
-  const telefono = "573235077586"; // WhatsApp Colombia
+  const telefono = "573153097632"; // WhatsApp Colombia (+57 código país)
 
   const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
   window.open(url, "_blank");
